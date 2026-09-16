@@ -1,7 +1,10 @@
 *
 !.gitignore
+!.gitattributes
 !README.md
 !CLAUDE.md
 !settings.json
 !skills/
 !skills/**
+!.githooks/
+!.githooks/**

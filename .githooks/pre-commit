@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Blocks commits whose staged changes look like they add a credential.
+#
+# Uses gitleaks for a thorough scan if it's installed on PATH, plus a
+# small built-in pattern check (needs nothing but bash/grep, so it
+# works on every machine this repo is cloned to) covering the
+# credential types relevant here: Anthropic API keys, AWS keys,
+# private key blocks, and raw values assigned to the env vars this
+# config's settings.json plumbs through (ANTHROPIC_AUTH_TOKEN, etc).
+set -euo pipefail
+
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --no-banner --redact
+fi
+
+diff=$(git diff --cached --diff-filter=ACM -U0)
+
+pattern='sk-ant-[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY-----|"(ANTHROPIC_AUTH_TOKEN|ANTHROPIC_API_KEY|apiKey)"[[:space:]]*:[[:space:]]*"[^"$][^"]{10,}"'
+
+hits=$(printf '%s\n' "$diff" | grep -E -n "^\+.*($pattern)" || true)
+
+if [ -n "$hits" ]; then
+  echo "pre-commit: staged changes look like they add a credential:" >&2
+  echo "$hits" >&2
+  echo >&2
+  echo "Blocked. If this is a false positive: git commit --no-verify" >&2
+  exit 1
+fi
