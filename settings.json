@@ -1,5 +1,8 @@
 {
   "model": "sonnet",
   "autoUpdatesChannel": "latest",
-  "theme": "dark"
+  "theme": "dark",
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://keymaker.genai.umass.edu"
+  }
 }
