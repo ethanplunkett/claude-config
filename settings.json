@@ -1,8 +1,8 @@
 {
-  "model": "sonnet",
-  "autoUpdatesChannel": "latest",
-  "theme": "dark",
   "env": {
     "ANTHROPIC_BASE_URL": "https://keymaker.genai.umass.edu"
-  }
+  },
+  "model": "claude-sonnet-5",
+  "autoUpdatesChannel": "latest",
+  "theme": "dark"
 }
