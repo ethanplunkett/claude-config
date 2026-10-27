@@ -2,15 +2,16 @@
 
 This project follows the research compendium (non-package) structure:
 
+```
 project/
 ├── CLAUDE.md
-├── 00_setup.R # Global parameters, constants, paths, options.
-│              # Sourced first by every other numbered script.
-├── 01_import.R # Reads raw data, minimal transformation only.
-├── 02_clean.R # Cleaning, tidying, merging.
+├── 00_setup.R    # Global parameters, constants, paths, options.
+│                 # Sourced first by every other numbered script.
+├── 01_import.R   # Reads raw data, minimal transformation only.
+├── 02_clean.R    # Cleaning, tidying, merging.
 ├── 03_analysis.R # Modeling / statistical analysis.
-├── 04_report.R # Tables, figures, final outputs. Could also be a markdown doc.
-├── R/ # All custom functions live here, one concern per file.
+├── 04_report.Rmd # Tables, figures, final outputs.
+├── R/            # All custom functions live here, one concern per file.
 │   ├── clean_helpers.R
 │   ├── analysis_helpers.R
 │   └── plot_helpers.R
@@ -19,10 +20,11 @@ project/
 │       ├── test-clean_helpers.R
 │       └── test-analysis_helpers.R
 ├── data/
-│   ├── raw/ # Read-only. Never written to by any script.
-│   ├── interim/ # Intermediate, reproducible outputs. Safe to delete.
-│   └── output/ # Final outputs: cleaned data, tables, figures.
+│   ├── raw/      # Read-only. Never written to by any script.
+│   ├── interim/  # Intermediate, reproducible outputs. Safe to delete.
+│   └── output/   # Final outputs: cleaned data, tables, figures.
 └── renv.lock
+```
 
 Rules for this structure:
 - Numbered top-level scripts (`01_`, `02_`, ...) are **drivers only**. They
