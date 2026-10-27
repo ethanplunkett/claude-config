@@ -9,7 +9,7 @@ R code:
   elsewhere — stay consistent within a single project, don't mix).
 - Spaces around binary operators (`x + y`, not `x+y`); no space before a
   comma, one space after.
-- Lines wrapped at ~80 characters where reasonable. 
+- Lines wrapped at ~80 characters where reasonable.
 - Prefer `tidyverse` verbs (`dplyr`, `purrr`, `tidyr`) over base R
   equivalents when both are reasonably idiomatic, unless the project has
   already committed to a base-R/data.table style — match existing code.
@@ -22,7 +22,7 @@ R code:
 
 Every function — **whether or not this project is a formal package** —
 must be documented with roxygen2-style comments directly above its
-definition. This applies to functions in `/R` in both the compendium and
+definition. This applies to functions in `R/` in both the compendium and
 package structures.
 
 Minimum required tags:
