@@ -51,12 +51,18 @@ Don't hardcode a width — check, in order, and use the first match:
    `NumSpacesForTab: N` and use `N`.
 3. Otherwise default to **2 spaces** (tidyverse style guide default).
 
-## 4. Write the file
+## 4. Detect the project's pipe style
 
-Always use the base pipe `|>` (never `%>%`) — this is a fixed choice,
-not project-detected. Always double-quoted strings unless a quote
-mark is inside the string. Use the indent width from step 3 for the
-function body and any wrapped argument lists.
+Grep existing files under `R/` for `%>%`. If any use it, match that
+project and use `%>%` in the new file (and `magrittr`'s `.` placeholder
+where needed). Otherwise default to the base pipe `|>` — never mix the
+two styles within one project.
+
+## 5. Write the file
+
+Always double-quoted strings unless a quote mark is inside the
+string. Use the indent width from step 3 and the pipe style from
+step 4 for the function body and any wrapped argument lists.
 
 Template (shown with a 2-space indent; substitute the detected
 width):
@@ -92,7 +98,7 @@ Rules for filling this in:
   `[text](url)` for links) per this convention's eventual-package
   migration plan — don't write plain-text-only docs.
 
-## 5. Confirm
+## 6. Confirm
 
 Report the file path created and remind the user (if the body was
 left empty) that the implementation still needs to be written.

@@ -10,9 +10,13 @@ global instructions, settings, and slash-command skills for all projects.
   the `dev/` workplan+worklog convention).
 - **`settings.json`** — model, theme, and update-channel preferences.
   Never put secrets here (see "Secrets" below).
-- **`skills/`** — user-invocable skills backing the `dev/` convention:
-  `dev-init`, `new-r-function`, `lint-changed`, `news-entry`,
-  `worklog-entry`, `worklog-rotate`, `workplan-close`.
+- **`skills/`** — user-invocable skills: `dev-init`, `new-r-function`,
+  `lint-changed`, `news-entry`, `worklog-entry`, `worklog-rotate`,
+  `workplan-close` (backing the `dev/` convention), and
+  `r-project-init` (adds R project conventions — structure, tidyverse
+  style, roxygen2 — to a project's `CLAUDE.md`, and merges in
+  R-specific `.gitignore`/`.gitattributes` lines; doesn't scaffold
+  files itself, points to `usethis`/`devtools` for that).
 - **`.githooks/pre-commit`** — blocks commits that look like they add
   a credential (see "Secrets" below).
 

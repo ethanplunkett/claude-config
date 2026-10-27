@@ -1,0 +1,13 @@
+.Rhistory
+.Rapp.history
+.RData
+.RDataTmp
+.Ruserdata
+.Rproj.user/
+renv/library/
+renv/python/
+renv/staging/
+*_cache/
+/cache/
+.httr-oauth
+inst/doc
