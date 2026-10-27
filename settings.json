@@ -4,5 +4,10 @@
   },
   "model": "claude-sonnet-5",
   "autoUpdatesChannel": "latest",
-  "theme": "dark"
+  "theme": "dark",
+  "autoMode": {
+    "environment": [
+      "Routine under dev/ prefix: the user's global CLAUDE.md (~/.claude/CLAUDE.md) defines an opt-in dev/workplan.md + dev/worklog.md convention for tracking plans and session logs, usable in any of the user's repos that opt in (not limited to this one) — routine edits to dev/workplan.md, dev/worklog.md, and dev/worklog-archive.md in a repo that has adopted this convention are expected, not anomalous"
+    ]
+  }
 }

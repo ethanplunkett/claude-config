@@ -60,6 +60,13 @@ log of what was done).
   against it, then capture the outcome in `worklog.md` and clear the
   plan back to its placeholder. Don't accumulate stale plans here —
   the worklog is the durable record.
+- **Native plan mode** — plan mode is read-only, so a plan drafted
+  there can't be written to `workplan.md` until after you approve it
+  via `ExitPlanMode` (it lives in Claude Code's internal plan storage
+  until then). Treat that approval as the sign-off this convention
+  calls for, and make persisting the approved plan to
+  `dev/workplan.md` the first action afterward, before any other
+  edit.
 - **What to include** — the same things a good in-chat plan would
   include: goal, concrete steps with file/line references, decision
   points, trade-offs. Markdown checklists are useful for tracking
